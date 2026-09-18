@@ -1,0 +1,35 @@
+<section id="experience" class="experience" aria-labelledby="experience-title">
+  <div class="experience__container">
+    <header class="experience__intro">
+      <p class="experience__eyebrow">{{ language.translations().experience.eyebrow }}</p>
+      <h2 id="experience-title">{{ language.translations().experience.title }}</h2>
+    </header>
+
+    <div class="experience__list">
+      @for (entry of language.translations().experience.entries; track entry.company) { <article class="experience__entry">
+        <header class="experience__meta">
+          <h3>{{ entry.company }}</h3>
+          <p class="experience__role">{{ entry.role }}</p>
+          <p class="experience__period">
+            <span>{{ language.translations().experience.period }}</span>
+            {{ entry.period }}
+          </p>
+        </header>
+
+        <div class="experience__content">
+          <p class="experience__description">{{ entry.description }}</p>
+
+          <h4>{{ language.translations().experience.responsibilities }}</h4>
+          <ul class="experience__responsibilities">
+            @for (item of entry.responsibilities; track item) { <li>{{ item }}</li> }
+          </ul>
+
+          <h4>{{ language.translations().experience.technologies }}</h4>
+          <ul class="experience__technologies" [attr.aria-label]="language.translations().experience.technologies + ': ' + entry.company">
+            @for (technology of entry.technologies; track technology) { <li>{{ technology }}</li> }
+          </ul>
+        </div>
+      </article> }
+    </div>
+  </div>
+</section>

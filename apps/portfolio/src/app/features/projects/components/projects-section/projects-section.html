@@ -1,0 +1,50 @@
+<section id="projects" class="projects" aria-labelledby="projects-title">
+  <div class="projects__container">
+    <header class="projects__intro">
+      <p class="projects__eyebrow">{{ language.translations().projects.eyebrow }}</p>
+      <h2 id="projects-title">{{ language.translations().projects.title }}</h2>
+      <p>{{ language.translations().projects.intro }}</p>
+    </header>
+
+    <div class="projects__list">
+      @for (project of language.translations().projects.entries; track project.title) {
+        <article class="projects__project">
+          <header class="projects__project-header">
+            <p class="projects__type">{{ project.type }}</p>
+            <h3>{{ project.title }}</h3>
+            <p class="projects__subtitle">{{ project.subtitle }}</p>
+          </header>
+
+          <div class="projects__layout">
+            <figure class="projects__preview projects__preview--placeholder">
+              <div aria-hidden="true">{{ language.translations().projects.screenshot }}</div>
+              <figcaption>{{ language.translations().projects.screenshotDescription }}</figcaption>
+            </figure>
+
+            <div class="projects__content">
+              <p class="projects__description">{{ project.description }}</p>
+
+              <h4>{{ language.translations().projects.role }}</h4>
+              <p class="projects__role">{{ project.role }}</p>
+
+              <h4>{{ language.translations().projects.highlights }}</h4>
+              <ul class="projects__contribution">
+                @for (item of project.highlights; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+
+              <h4>{{ language.translations().projects.technologies }}</h4>
+              <ul class="projects__technologies" [attr.aria-label]="language.translations().projects.technologies + ': ' + project.title">
+                @for (technology of project.technologies; track technology) {
+                  <li>{{ technology }}</li>
+                }
+              </ul>
+
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

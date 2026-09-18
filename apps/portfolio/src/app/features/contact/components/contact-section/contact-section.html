@@ -1,0 +1,26 @@
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="contact__container">
+    <div class="contact__content">
+      <p class="contact__eyebrow">{{ language.translations().contact.eyebrow }}</p>
+      <h2 id="contact-title">{{ language.translations().contact.title }}</h2>
+      <p class="contact__lead">{{ language.translations().contact.lead }}</p>
+      <p class="contact__description">{{ language.translations().contact.description }}</p>
+    </div>
+
+    <nav class="contact__actions" [attr.aria-label]="language.translations().contact.channels">
+      @for (link of contactLinks; track link.label) {
+        <a
+          [href]="link.href"
+          [class.contact__action--primary]="link.emphasis === 'primary'"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noopener noreferrer' : null"
+        >
+          {{ link.href.startsWith('mailto:') ? language.translations().contact.email : link.label }}
+          @if (link.external) {
+            <span class="sr-only"> {{ language.translations().nav.newTab }}</span>
+          }
+        </a>
+      }
+    </nav>
+  </div>
+</section>

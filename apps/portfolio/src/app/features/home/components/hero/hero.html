@@ -1,13 +1,10 @@
-<section id="about" class="hero" aria-labelledby="hero-title">
+<section class="hero" aria-labelledby="hero-title">
   <div class="hero__container">
-    <p class="hero__eyebrow">Hola, soy Ángel</p>
-    <h1 id="hero-title">Frontend Developer especializado en Angular</h1>
-    <p class="hero__summary">
-      Ingeniero Informático especializado en Ingeniería del Software, con foco en
-      crear experiencias web claras, mantenibles y orientadas a las personas.
-    </p>
+    <p class="hero__eyebrow">{{ language.translations().hero.greeting }}</p>
+    <h1 id="hero-title">{{ language.translations().hero.title }}</h1>
+    <p class="hero__summary">{{ language.translations().hero.summary }}</p>
 
-    <ul class="hero__stack" aria-label="Tecnologías destacadas">
+    <ul class="hero__stack" [attr.aria-label]="language.translations().hero.stackLabel">
       <li>Angular</li>
       <li>TypeScript</li>
       <li>Microfrontends</li>
@@ -15,9 +12,9 @@
     </ul>
 
     <div class="hero__actions">
-      <a class="button button--primary" href="#projects">Ver proyectos</a>
+      <a class="button button--primary" href="#projects">{{ language.translations().hero.projects }}</a>
       <a class="button button--secondary" href="/cv.pdf" download>
-        Descargar CV
+        {{ language.translations().hero.downloadCv }}
       </a>
     </div>
   </div>

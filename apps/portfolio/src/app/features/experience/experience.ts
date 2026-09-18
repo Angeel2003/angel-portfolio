@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ExperienceSection } from './components/experience-section/experience-section';
 
 @Component({
   selector: 'app-experience',
-  imports: [],
+  imports: [ExperienceSection],
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
 })

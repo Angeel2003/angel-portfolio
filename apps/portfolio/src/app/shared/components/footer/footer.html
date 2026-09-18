@@ -1,0 +1,29 @@
+<footer class="footer">
+  <div class="footer__container">
+    <p class="footer__identity">
+      <span>Ángel Muñoz Cortés</span>
+      <span>{{ language.translations().footer.role }}</span>
+    </p>
+
+    <p class="footer__copyright">© {{ currentYear }}</p>
+
+    <nav [attr.aria-label]="language.translations().footer.social">
+      <ul class="footer__socials">
+        @for (link of footerLinks; track link.label) {
+          <li>
+            <a
+              [href]="link.href"
+              [attr.target]="link.external ? '_blank' : null"
+              [attr.rel]="link.external ? 'noopener noreferrer' : null"
+            >
+              {{ link.href.startsWith('mailto:') ? language.translations().footer.email : link.label }}
+              @if (link.external) {
+                <span class="sr-only"> {{ language.translations().nav.newTab }}</span>
+              }
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</footer>

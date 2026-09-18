@@ -1,0 +1,107 @@
+:host {
+  display: block;
+}
+
+.contact {
+  scroll-margin-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.contact__container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 0.65fr);
+  gap: clamp(3rem, 10vw, 10rem);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: clamp(4.5rem, 9vw, 7.5rem) var(--page-gutter);
+}
+
+.contact__content {
+  max-width: 44rem;
+}
+
+.contact__eyebrow {
+  margin: 0 0 0.875rem;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h2,
+p {
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.contact__lead {
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.65;
+}
+
+.contact__description {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.contact__actions {
+  display: grid;
+  align-content: center;
+  gap: 0.75rem;
+}
+
+.contact__actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact__actions .contact__action--primary {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-primary-contrast);
+}
+
+.contact__actions a:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.contact__actions .contact__action--primary:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-primary-contrast);
+}
+
+.contact__actions a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 42rem) {
+  .contact__container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact__actions {
+    justify-items: stretch;
+  }
+}

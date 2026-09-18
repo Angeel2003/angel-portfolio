@@ -1,32 +1,46 @@
 <header class="navbar">
   <div class="navbar__container">
-    <a class="navbar__brand" href="/" aria-label="Ir al inicio de Ángel Muñoz Cortés">
+    <a class="navbar__brand" href="/" [attr.aria-label]="language.translations().nav.home">
       Ángel Muñoz Cortés
     </a>
 
-    <nav aria-label="Navegación principal">
+    <nav [attr.aria-label]="language.translations().nav.main">
       <ul class="navbar__links">
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#skills">Stack</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#about">{{ language.translations().nav.about }}</a></li>
+        <li><a href="#experience">{{ language.translations().nav.experience }}</a></li>
+        <li><a href="#projects">{{ language.translations().nav.projects }}</a></li>
+        <li><a href="#stack">{{ language.translations().nav.stack }}</a></li>
+        <li><a href="#contact">{{ language.translations().nav.contact }}</a></li>
       </ul>
     </nav>
 
-    <ul class="navbar__socials" aria-label="Redes profesionales">
-      <li>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          GitHub
-          <span class="sr-only"> (se abre en una pestaña nueva)</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-          <span class="sr-only"> (se abre en una pestaña nueva)</span>
-        </a>
-      </li>
-    </ul>
+    <div class="navbar__utilities">
+      <button class="navbar__language-toggle" type="button" [attr.aria-label]="language.translations().nav.switchLanguage" (click)="language.toggleLanguage()">{{ language.language().toUpperCase() }}</button>
+      <button
+        class="navbar__theme-toggle"
+        type="button"
+        role="switch"
+        [attr.aria-label]="language.translations().nav.themeDark"
+        [attr.aria-checked]="theme.isDark()"
+        (click)="theme.toggleTheme()"
+      >
+        <span class="navbar__theme-icon navbar__theme-icon--sun" aria-hidden="true">☀</span>
+        <span class="navbar__theme-track" aria-hidden="true"></span>
+        <span class="navbar__theme-icon navbar__theme-icon--moon" aria-hidden="true">☾</span>
+      </button>
+
+      <ul class="navbar__socials" [attr.aria-label]="language.translations().nav.social">
+        @for (link of socialLinks; track link.label) {
+          @if (link.href) {
+            <li>
+              <a [href]="link.href" target="_blank" rel="noopener noreferrer">
+                {{ link.label }}
+                <span class="sr-only"> {{ language.translations().nav.newTab }}</span>
+              </a>
+            </li>
+          }
+        }
+      </ul>
+    </div>
   </div>
 </header>

@@ -1,0 +1,239 @@
+:host {
+  display: block;
+}
+
+.projects {
+  scroll-margin-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.projects__container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: clamp(4.5rem, 9vw, 7.5rem) var(--page-gutter);
+}
+
+.projects__intro {
+  max-width: 44rem;
+}
+
+.projects__eyebrow,
+.projects__type {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.projects__eyebrow {
+  margin: 0 0 0.875rem;
+}
+
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.projects__intro > p:last-child {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.projects__list {
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+
+.projects__project {
+  padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.projects__project:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.projects__project-header {
+  max-width: 52rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.projects__type {
+  margin-bottom: 0.875rem;
+}
+
+.projects__project h3 {
+  margin-bottom: 0.875rem;
+  color: var(--color-text);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.projects__subtitle {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.projects__layout {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.95fr) minmax(0, 1.15fr);
+  gap: clamp(2.25rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.projects__preview {
+  display: grid;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+}
+
+.projects__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects__preview--placeholder {
+  position: relative;
+  align-content: center;
+  justify-items: center;
+  padding: 1.5rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.projects__preview--placeholder::before {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 2.75rem;
+  height: 2px;
+  background: var(--color-accent);
+  content: '';
+}
+
+.projects__preview--placeholder div {
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.projects__preview figcaption {
+  max-width: 16rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.projects__content {
+  max-width: 40rem;
+}
+
+.projects__description {
+  margin-bottom: 1.75rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+h4 {
+  margin-bottom: 0.875rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.projects__role {
+  margin-bottom: 1.75rem;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.projects__contribution {
+  display: grid;
+  gap: 0.625rem;
+  margin: 0 0 2rem;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.projects__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projects__technologies li {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.projects__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.projects__actions a {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.projects__actions a:hover {
+  color: var(--color-accent);
+}
+
+.projects__actions a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 48rem) {
+  .projects__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .projects__preview {
+    width: 100%;
+  }
+}
+
+@media (max-width: 34rem) {
+  .projects__container {
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .projects__project {
+    padding: 2.5rem 0;
+  }
+}

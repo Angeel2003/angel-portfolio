@@ -37,6 +37,12 @@
   list-style: none;
 }
 
+.navbar__utilities {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .navbar__links a,
 .navbar__socials a {
   color: var(--color-text-muted);
@@ -53,14 +59,97 @@
   color: var(--color-text);
 }
 
+.navbar__theme-toggle {
+  display: grid;
+  grid-template-columns: 1rem 2.5rem 1rem;
+  gap: 0.35rem;
+  width: auto;
+  min-height: 2.25rem;
+  align-items: center;
+  padding: 0.25rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navbar__language-toggle {
+  min-height: 2.25rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navbar__theme-track {
+  grid-column: 2;
+  position: relative;
+  width: 2.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+}
+
+.navbar__theme-track::after {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  content: '';
+  transition: transform 180ms ease;
+}
+
+.navbar__theme-icon {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.navbar__theme-icon--sun {
+  color: var(--color-accent);
+}
+
+:host-context([data-theme='dark']) .navbar__theme-track::after {
+  transform: translateX(1rem);
+}
+
+:host-context([data-theme='dark']) .navbar__theme-icon--sun {
+  color: var(--color-text-muted);
+}
+
+:host-context([data-theme='dark']) .navbar__theme-icon--moon {
+  color: var(--color-accent);
+}
+
 .navbar__links a:hover,
 .navbar__socials a:hover {
   color: var(--color-accent);
 }
 
+.navbar__theme-toggle:hover .navbar__theme-track {
+  border-color: var(--color-accent);
+}
+
+.navbar__language-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .navbar__links a:focus-visible,
 .navbar__socials a:focus-visible,
-.navbar__brand:focus-visible {
+.navbar__brand:focus-visible,
+.navbar__theme-toggle:focus-visible,
+.navbar__language-toggle:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
 }
@@ -79,7 +168,7 @@
     padding-bottom: 0.25rem;
   }
 
-  .navbar__socials {
+  .navbar__utilities {
     margin-left: auto;
   }
 }
@@ -89,7 +178,7 @@
     gap: 0.875rem;
   }
 
-  .navbar__socials {
+  .navbar__utilities {
     margin-left: 0;
   }
 }
