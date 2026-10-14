@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SeoService } from './core/services/seo';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './shared/components/footer/footer';
 
@@ -8,4 +9,6 @@ import { Footer } from './shared/components/footer/footer';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {}
+export class App {
+  private readonly seo = inject(SeoService);
+}

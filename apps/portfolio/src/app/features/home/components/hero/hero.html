@@ -13,7 +13,11 @@
 
     <div class="hero__actions">
       <a class="button button--primary" href="#projects">{{ language.translations().hero.projects }}</a>
-      <a class="button button--secondary" href="/cv.pdf" download>
+      <a
+        class="button button--secondary"
+        [href]="curriculumVitaePaths[language.language()]"
+        download
+      >
         {{ language.translations().hero.downloadCv }}
       </a>
     </div>

@@ -38,7 +38,7 @@ export class ThemeService {
     this.applyTheme(theme);
   }
 
-  private setTheme(theme: Theme): void {
+  setTheme(theme: Theme): void {
     this.theme.set(theme);
     this.applyTheme(theme);
 

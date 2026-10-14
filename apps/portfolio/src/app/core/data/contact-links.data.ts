@@ -15,12 +15,12 @@ export const emailLink: ContactLink = {
 export const socialLinks: readonly ContactLink[] = [
   {
     label: 'GitHub',
-    href: 'https://github.com/',
+    href: 'https://github.com/Angeel2003',
     external: true,
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/in/angel-munoz-cortes',
     external: true,
   },
 ];

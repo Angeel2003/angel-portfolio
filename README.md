@@ -66,3 +66,31 @@ El código de la aplicación está en `apps/portfolio/src/app`:
 
 La ruta inicial reúne Hero, Sobre mí, Experiencia, Proyectos, Stack y Contacto. Las secciones de experiencia, proyectos, stack y contacto también tienen rutas propias.
 
+## Currículums
+
+Copia los PDFs reales en `apps/portfolio/public/cv/` con estos nombres:
+
+- `angel-munoz-cortes-es.pdf`
+- `angel-munoz-cortes-en.pdf`
+
+## Capturas de proyectos
+
+Añade las capturas reales en estas rutas y, cuando estén disponibles, actívalas
+desde `apps/portfolio/src/app/core/data/projects.data.ts`:
+
+- `apps/portfolio/public/projects/production-management/cover.webp`
+- `apps/portfolio/public/projects/production-management/screenshot-1.webp`
+- `apps/portfolio/public/projects/production-management/screenshot-2.webp`
+- `apps/portfolio/public/projects/aps-pail/cover.webp`
+- `apps/portfolio/public/projects/aps-pail/screenshot-1.webp`
+- `apps/portfolio/public/projects/aps-pail/screenshot-2.webp`
+
+Mientras no existan, la aplicación muestra un placeholder accesible y no solicita
+archivos inexistentes.
+
+## SEO
+
+Configura el dominio de producción en `siteUrl` dentro de
+`apps/portfolio/src/app/core/config/seo.config.ts`. Cuando esté disponible,
+añade la imagen Open Graph real en `apps/portfolio/public/og/portfolio-og.png`.
+

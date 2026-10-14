@@ -72,6 +72,23 @@ test('navigates to projects', async ({ page }) => {
   ).toBeInViewport();
 });
 
+test('opens a project detail from the home page and returns to projects', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByRole('link', { name: 'View details' }).first().click();
+
+  await expect(page).toHaveURL(/\/projects\/production-management$/);
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Production Management System' }),
+  ).toBeVisible();
+
+  await page.getByRole('link', { name: 'Back to projects' }).click();
+  await expect(page).toHaveURL(/\/#projects$/);
+  await expect(
+    page.getByRole('heading', { level: 2, name: 'Selected work' }),
+  ).toBeVisible();
+});
+
 test('navigates to stack and adapts its groups to the viewport', async ({ page }) => {
   const viewports = [
     { width: 375, height: 812, columns: 1 },

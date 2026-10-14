@@ -1,0 +1,86 @@
+@if (project && content(); as content) {
+  <main class="project-detail">
+    <div class="project-detail__container">
+      <nav class="project-detail__breadcrumb" [attr.aria-label]="labels[language.language()].breadcrumb">
+        <a routerLink="/" fragment="projects">{{ labels[language.language()].backToProjects }}</a>
+      </nav>
+
+      <header class="project-detail__header">
+        <p class="project-detail__type">{{ content.type }}</p>
+        <h1>{{ content.title }}</h1>
+        <p class="project-detail__subtitle">{{ content.subtitle }}</p>
+      </header>
+
+      <section class="project-detail__overview" [attr.aria-label]="labels[language.language()].overview">
+        <p>{{ content.longDescription }}</p>
+      </section>
+
+      <div class="project-detail__layout">
+        <section aria-labelledby="project-role">
+          <h2 id="project-role">{{ language.translations().projects.role }}</h2>
+          <p>{{ content.role }}</p>
+        </section>
+
+        <section aria-labelledby="project-highlights">
+          <h2 id="project-highlights">{{ language.translations().projects.highlights }}</h2>
+          <ul>
+            @for (highlight of content.highlights; track highlight) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+        </section>
+
+        <section aria-labelledby="project-technologies">
+          <h2 id="project-technologies">{{ language.translations().projects.technologies }}</h2>
+          <ul class="project-detail__technologies" [attr.aria-label]="language.translations().projects.technologies + ': ' + content.title">
+            @for (technology of content.technologies; track technology) {
+              <li>{{ technology }}</li>
+            }
+          </ul>
+        </section>
+      </div>
+
+      @if (project.coverImage; as coverImage) {
+        <figure class="project-detail__cover">
+          <img [src]="coverImage.src" [alt]="coverImage.alt[language.language()]" />
+        </figure>
+      } @else {
+        <figure class="project-detail__cover project-detail__cover--placeholder">
+          <div aria-hidden="true">{{ language.translations().projects.screenshot }}</div>
+          <figcaption>{{ language.translations().projects.screenshotDescription }}</figcaption>
+        </figure>
+      }
+
+      @if (project.gallery.length) {
+        <section class="project-detail__gallery" aria-labelledby="project-gallery">
+          <h2 id="project-gallery">{{ labels[language.language()].gallery }}</h2>
+          <div>
+            @for (image of project.gallery; track image.src) {
+              <a [href]="image.src" target="_blank" rel="noopener noreferrer">
+                <img [src]="image.src" [alt]="image.alt[language.language()]" />
+              </a>
+            }
+          </div>
+        </section>
+      }
+
+      @if (project.githubUrl || project.demoUrl || project.manualUrl) {
+        <nav class="project-detail__links" [attr.aria-label]="labels[language.language()].projectLinks">
+          @if (project.githubUrl) {
+            <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">{{ labels[language.language()].code }}</a>
+          }
+          @if (project.demoUrl) {
+            <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">{{ labels[language.language()].demo }}</a>
+          }
+          @if (project.manualUrl) {
+            <a [href]="project.manualUrl" target="_blank" rel="noopener noreferrer">{{ labels[language.language()].manual }}</a>
+          }
+        </nav>
+      }
+
+      <p class="project-detail__home-link">
+        <a routerLink="/">{{ labels[language.language()].backToHome }}</a>
+      </p>
+    </div>
+  </main>
+}

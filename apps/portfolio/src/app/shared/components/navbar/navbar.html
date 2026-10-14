@@ -15,7 +15,28 @@
     </nav>
 
     <div class="navbar__utilities">
-      <button class="navbar__language-toggle" type="button" [attr.aria-label]="language.translations().nav.switchLanguage" (click)="language.toggleLanguage()">{{ language.language().toUpperCase() }}</button>
+      <button
+        class="navbar__language-toggle"
+        type="button"
+        [attr.aria-label]="language.translations().nav.switchLanguage"
+        (click)="language.toggleLanguage()"
+      >
+        @if (language.language() === 'es') {
+          <svg class="navbar__language-flag" viewBox="0 0 30 20" aria-hidden="true">
+            <rect width="30" height="20" fill="#aa151b" />
+            <rect y="5" width="30" height="10" fill="#f1bf00" />
+          </svg>
+        } @else {
+          <svg class="navbar__language-flag" viewBox="0 0 30 20" aria-hidden="true">
+            <rect width="30" height="20" fill="#012169" />
+            <path d="M0 0 30 20M30 0 0 20" stroke="#fff" stroke-width="5" />
+            <path d="M0 0 30 20M30 0 0 20" stroke="#c8102e" stroke-width="2" />
+            <path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6" />
+            <path d="M15 0v20M0 10h30" stroke="#c8102e" stroke-width="3" />
+          </svg>
+        }
+        <span>{{ language.language().toUpperCase() }}</span>
+      </button>
       <button
         class="navbar__theme-toggle"
         type="button"

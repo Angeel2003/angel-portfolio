@@ -11,6 +11,18 @@ export const appRoutes: Route[] = [
       import('./features/experience/experience').then((m) => m.Experience),
   },
   {
+    path: 'projects/production-management',
+    data: { projectSlug: 'production-management' },
+    loadComponent: () =>
+      import('./features/project-detail/project-detail').then((m) => m.ProjectDetail),
+  },
+  {
+    path: 'projects/aps-pail',
+    data: { projectSlug: 'aps-pail' },
+    loadComponent: () =>
+      import('./features/project-detail/project-detail').then((m) => m.ProjectDetail),
+  },
+  {
     path: 'projects',
     loadComponent: () =>
       import('./features/projects/projects').then((m) => m.Projects),
